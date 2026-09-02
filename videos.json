@@ -57,10 +57,10 @@
   "videos": [
 
     {
-      "id": "Ted",
+      "id": "ted",
       "type": "series",
 
-      "title": "Catnap",
+      "title": "Ted",
 
       "description": "A group of friends enter an abandoned facility where something is waiting for them in the dark.",
 
@@ -119,7 +119,7 @@
               "title": "Subways, Bicycles and Automobiles",
               "description": "Ted's plan to spend Halloween with John is thwarted when Blaire forces him to be her designated driver for the night. Susan tries to cheer John up by finding him a new friend.",
               "thumbnail": "assets/thumbnails/ted4.jpg",
-              "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E01%20Just%20Say%20Yes.mp4",
+              "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E04%20Subways%2C%20Bicycles%20and%20Automobiles.mp4",
               "duration": "37:06"
             },
 
@@ -128,7 +128,7 @@
               "title": "Desperately Seeking Susan",
               "description": "Blaire convinces Matty and Susan to let Ted act as their marriage therapist. After the session, Ted, John and Blaire encourage Susan to pursue the career she abandoned long ago.",
               "thumbnail": "assets/thumbnails/ted5.jpg",
-              "video": "https://ia801408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E02%20My%20Two%20Dads.mp4",
+              "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E05%20Desperataly%20Seeking%20Susan.mp4",
               "duration": "33:53"
             },
 
@@ -137,8 +137,8 @@
               "title": "Ejectile Disfunction",
               "description": "Something begins hunting the group through the abandoned corridors.",
               "thumbnail": "assets/thumbnails/catnap-s1-e3.jpg",
-              "video": "https://ia801408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E03%20Ejectile%20Disfunction.mp4",
-              "duration": "37:09"
+              "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E06%20Loud%20Night.mp4",
+              "duration": "43:49"
             }
           ]
         },
