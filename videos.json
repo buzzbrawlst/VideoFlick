@@ -1,4 +1,4 @@
-```json
+json
 {
   "site": {
     "name": "StreamHub",
@@ -324,4 +324,3 @@
 
   ]
 }
-```
