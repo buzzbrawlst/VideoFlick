@@ -1,0 +1,178 @@
+{
+"site": {
+"name": "StreamHub",
+"description": "Watch. Discover. Stream."
+},
+
+"featured": {
+"title": "ENTER THE NEXT LEVEL",
+"description": "Discover incredible videos, live streams and exclusive content. Watch what you love, whenever you want.",
+"thumbnail": "assets/thumbnails/featured.jpg",
+"video": "assets/videos/featured.mp4",
+"category": "Featured",
+"year": 2026,
+"duration": "1:42:00",
+"quality": "HD"
+},
+
+"categories": [
+{
+"id": "gaming",
+"name": "Gaming",
+"icon": "🎮",
+"image": "assets/categories/gaming.jpg"
+},
+{
+"id": "movies",
+"name": "Movies",
+"icon": "🎬",
+"image": "assets/categories/movies.jpg"
+},
+{
+"id": "music",
+"name": "Music",
+"icon": "🎵",
+"image": "assets/categories/music.jpg"
+},
+{
+"id": "live",
+"name": "Live",
+"icon": "🔴",
+"image": "assets/categories/live.jpg"
+}
+],
+
+"videos": [
+{
+"id": "midnight-city",
+"title": "Midnight City",
+"description": "A cinematic journey through the city after dark.",
+"thumbnail": "assets/thumbnails/midnight-city.jpg",
+"video": "assets/videos/midnight-city.mp4",
+"category": "Movies",
+"duration": "12:34",
+"views": "1.2M",
+"year": 2026,
+"featured": false,
+"trending": true,
+"recent": false,
+"added": "2026-08-20"
+},
+
+```
+{
+  "id": "into-the-wild",
+  "title": "Into The Wild",
+  "description": "Explore incredible places and landscapes around the world.",
+  "thumbnail": "assets/thumbnails/into-the-wild.jpg",
+  "video": "assets/videos/into-the-wild.mp4",
+  "category": "Movies",
+  "duration": "24:18",
+  "views": "842K",
+  "year": 2026,
+  "featured": false,
+  "trending": true,
+  "recent": false,
+  "added": "2026-08-18"
+},
+
+{
+  "id": "the-future",
+  "title": "The Future",
+  "description": "Technology, AI and the world of tomorrow.",
+  "thumbnail": "assets/thumbnails/the-future.jpg",
+  "video": "assets/videos/the-future.mp4",
+  "category": "Movies",
+  "duration": "18:02",
+  "views": "2.4M",
+  "year": 2026,
+  "featured": false,
+  "trending": true,
+  "recent": false,
+  "added": "2026-08-16"
+},
+
+{
+  "id": "neon-nights",
+  "title": "Neon Nights",
+  "description": "A visual experience inspired by neon cities and futuristic worlds.",
+  "thumbnail": "assets/thumbnails/neon-nights.jpg",
+  "video": "assets/videos/neon-nights.mp4",
+  "category": "Music",
+  "duration": "31:09",
+  "views": "638K",
+  "year": 2026,
+  "featured": false,
+  "trending": true,
+  "recent": false,
+  "added": "2026-08-14"
+},
+
+{
+  "id": "gaming-universe",
+  "title": "Gaming Universe",
+  "description": "The latest and greatest from the gaming world.",
+  "thumbnail": "assets/thumbnails/gaming-universe.jpg",
+  "video": "assets/videos/gaming-universe.mp4",
+  "category": "Gaming",
+  "duration": "15:44",
+  "views": "425K",
+  "year": 2026,
+  "featured": false,
+  "trending": false,
+  "recent": true,
+  "added": "2026-09-01"
+},
+
+{
+  "id": "sound-waves",
+  "title": "Sound Waves",
+  "description": "A journey through sound, rhythm and music.",
+  "thumbnail": "assets/thumbnails/sound-waves.jpg",
+  "video": "assets/videos/sound-waves.mp4",
+  "category": "Music",
+  "duration": "42:10",
+  "views": "198K",
+  "year": 2026,
+  "featured": false,
+  "trending": false,
+  "recent": true,
+  "added": "2026-09-01"
+},
+
+{
+  "id": "beyond-earth",
+  "title": "Beyond Earth",
+  "description": "Exploring the mysteries of space and the universe.",
+  "thumbnail": "assets/thumbnails/beyond-earth.jpg",
+  "video": "assets/videos/beyond-earth.mp4",
+  "category": "Movies",
+  "duration": "28:55",
+  "views": "302K",
+  "year": 2026,
+  "featured": false,
+  "trending": false,
+  "recent": true,
+  "added": "2026-08-31"
+},
+
+{
+  "id": "live-now",
+  "title": "Live Now: Community Stream",
+  "description": "Join the community for a live stream and chat.",
+  "thumbnail": "assets/thumbnails/live-now.jpg",
+  "video": "assets/videos/live-now.mp4",
+  "category": "Live",
+  "duration": "LIVE",
+  "views": "12.8K watching",
+  "year": 2026,
+  "featured": false,
+  "trending": true,
+  "recent": true,
+  "isLive": true,
+  "added": "2026-09-02"
+}
+```
+
+]
+}
