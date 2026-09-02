@@ -1,31 +1,28 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>VideoFlick</title>
+  <title>StreamHub</title>
 
   <style>
-    /* ================================
-       RESET & VARIABLES
-    ================================= */
-
     :root {
       --bg: #080808;
-      --bg-secondary: #111111;
-      --card: #181818;
-      --card-hover: #242424;
+      --surface: #111;
+      --surface-2: #181818;
+      --surface-3: #222;
 
-      --text: #ffffff;
-      --text-muted: #a0a0a0;
+      --text: #fff;
+      --muted: #999;
 
       --accent: #ff2b2b;
       --accent-hover: #ff4545;
 
-      --border: rgba(255, 255, 255, 0.08);
+      --border: rgba(255,255,255,.08);
 
-      --nav-height: 72px;
+      --nav-height: 70px;
       --radius: 14px;
     }
 
@@ -44,11 +41,8 @@
       color: var(--text);
       font-family:
         Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
+        Arial,
+        Helvetica,
         sans-serif;
 
       overflow-x: hidden;
@@ -60,8 +54,8 @@
     }
 
     button {
+      border: 0;
       cursor: pointer;
-      border: none;
     }
 
     a {
@@ -69,40 +63,84 @@
       text-decoration: none;
     }
 
+    /* =========================
+       LOADING
+    ========================= */
 
-    /* ================================
+    #loading {
+      position: fixed;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--bg);
+
+      z-index: 9999;
+
+      transition: opacity .3s ease;
+    }
+
+    #loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader {
+      width: 42px;
+      height: 42px;
+
+      border: 4px solid #333;
+      border-top-color: var(--accent);
+
+      border-radius: 50%;
+
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* =========================
        NAVBAR
-    ================================= */
+    ========================= */
 
     .navbar {
       position: fixed;
+
       top: 0;
       left: 0;
 
       width: 100%;
       height: var(--nav-height);
 
+      padding: 0 5%;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      padding: 0 5%;
 
       z-index: 1000;
 
       background: linear-gradient(
         to bottom,
-        rgba(8, 8, 8, 0.98),
-        rgba(8, 8, 8, 0.75),
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.65),
         transparent
       );
 
-      transition: 0.25s ease;
+      transition: .25s ease;
     }
 
     .navbar.scrolled {
-      background: rgba(8, 8, 8, 0.96);
-      backdrop-filter: blur(15px);
+      background: rgba(8,8,8,.96);
+
+      backdrop-filter: blur(18px);
+
       border-bottom: 1px solid var(--border);
     }
 
@@ -113,8 +151,9 @@
     }
 
     .logo {
-      font-size: 1.65rem;
+      font-size: 1.6rem;
       font-weight: 900;
+
       letter-spacing: -1px;
     }
 
@@ -124,13 +163,15 @@
 
     .nav-links {
       display: flex;
-      gap: 24px;
-      color: var(--text-muted);
-      font-size: 0.95rem;
+      gap: 25px;
+
+      color: var(--muted);
+
+      font-size: .92rem;
     }
 
     .nav-links a {
-      transition: 0.2s;
+      transition: .2s;
     }
 
     .nav-links a:hover,
@@ -144,10 +185,9 @@
       gap: 14px;
     }
 
-
-    /* ================================
+    /* =========================
        SEARCH
-    ================================= */
+    ========================= */
 
     .search {
       position: relative;
@@ -158,30 +198,41 @@
 
       padding: 10px 14px 10px 38px;
 
-      border-radius: 9px;
+      background: rgba(255,255,255,.08);
+
       border: 1px solid var(--border);
 
-      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9px;
+
       color: white;
 
       outline: none;
 
-      transition: 0.2s;
+      transition: .2s;
+    }
+
+    .search input::placeholder {
+      color: #888;
     }
 
     .search input:focus {
       width: 270px;
-      border-color: rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.12);
+
+      background: rgba(255,255,255,.12);
+
+      border-color: rgba(255,255,255,.2);
     }
 
     .search-icon {
       position: absolute;
+
       left: 13px;
       top: 50%;
+
       transform: translateY(-50%);
 
-      opacity: 0.65;
+      color: #aaa;
+
       pointer-events: none;
     }
 
@@ -189,55 +240,80 @@
       width: 38px;
       height: 38px;
 
-      border-radius: 50%;
-
       display: grid;
       place-items: center;
 
+      border-radius: 50%;
+
       background: var(--accent);
+
       color: white;
+
       font-weight: 800;
     }
 
-
-    /* ================================
+    /* =========================
        HERO
-    ================================= */
+    ========================= */
 
     .hero {
       position: relative;
 
-      min-height: 720px;
+      min-height: 700px;
 
       display: flex;
       align-items: center;
 
-      padding: 120px 7% 80px;
+      padding: 120px 7% 100px;
 
       overflow: hidden;
     }
 
     .hero-background {
       position: absolute;
+
       inset: 0;
 
-      background-image:
+      background-position: center;
+      background-size: cover;
+
+      z-index: -3;
+
+      transition: background-image .3s ease;
+    }
+
+    .hero-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
         linear-gradient(
           90deg,
           #080808 0%,
-          rgba(8, 8, 8, 0.88) 25%,
-          rgba(8, 8, 8, 0.3) 65%,
-          rgba(8, 8, 8, 0.1) 100%
-        ),
-        linear-gradient(
-          0deg,
-          #080808 0%,
-          transparent 40%
-        ),
-        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=2000&q=90");
+          rgba(8,8,8,.88) 25%,
+          rgba(8,8,8,.35) 70%,
+          rgba(8,8,8,.05) 100%
+        );
 
-      background-size: cover;
-      background-position: center;
+      z-index: -2;
+    }
+
+    .hero-bottom {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 180px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          var(--bg)
+        );
 
       z-index: -1;
     }
@@ -247,29 +323,33 @@
     }
 
     .featured-label {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 8px;
-
-      color: #ddd;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      gap: 9px;
 
       margin-bottom: 18px;
+
+      font-size: .78rem;
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+      color: #ddd;
     }
 
     .featured-dot {
       width: 8px;
       height: 8px;
 
-      border-radius: 50%;
       background: var(--accent);
+
+      border-radius: 50%;
     }
 
     .hero h1 {
       font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: 0.95;
+
+      line-height: .95;
 
       letter-spacing: -4px;
 
@@ -282,120 +362,126 @@
 
     .hero-meta {
       display: flex;
-      gap: 16px;
-      align-items: center;
+      gap: 14px;
 
-      margin-bottom: 20px;
+      margin-bottom: 18px;
 
-      color: #d0d0d0;
-      font-size: 0.9rem;
+      color: #ccc;
+
+      font-size: .9rem;
     }
 
     .hero-description {
-      color: #c0c0c0;
-
-      font-size: 1.05rem;
-      line-height: 1.7;
-
       max-width: 600px;
 
-      margin-bottom: 30px;
+      margin-bottom: 28px;
+
+      color: #bbb;
+
+      line-height: 1.7;
     }
 
     .hero-buttons {
       display: flex;
       gap: 12px;
+
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 14px 23px;
+      padding: 13px 21px;
 
       border-radius: 9px;
-
-      font-weight: 750;
 
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
 
-      transition: 0.2s;
+      gap: 8px;
+
+      font-weight: 800;
+
+      transition: .2s;
     }
 
     .btn-primary {
       background: var(--accent);
+
       color: white;
     }
 
     .btn-primary:hover {
       background: var(--accent-hover);
+
       transform: translateY(-2px);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.13);
+      background: rgba(255,255,255,.12);
+
       color: white;
 
       backdrop-filter: blur(10px);
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255,255,255,.2);
     }
 
-
-    /* ================================
-       MAIN CONTENT
-    ================================= */
+    /* =========================
+       MAIN
+    ========================= */
 
     main {
       position: relative;
-      z-index: 2;
 
-      margin-top: -100px;
+      margin-top: -80px;
+
+      z-index: 5;
     }
 
     .content-section {
-      padding: 30px 5%;
+      padding: 28px 5%;
     }
 
     .section-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
 
       margin-bottom: 18px;
     }
 
     .section-title {
-      font-size: 1.45rem;
-      font-weight: 800;
+      font-size: 1.4rem;
+
+      font-weight: 850;
     }
 
     .see-all {
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      color: var(--muted);
 
-      transition: 0.2s;
+      font-size: .88rem;
+
+      transition: .2s;
     }
 
     .see-all:hover {
       color: white;
     }
 
-
-    /* ================================
+    /* =========================
        VIDEO ROW
-    ================================= */
+    ========================= */
 
     .video-row {
       display: flex;
+
       gap: 16px;
 
       overflow-x: auto;
 
-      padding-bottom: 12px;
+      padding: 5px 4px 15px;
 
       scrollbar-width: none;
     }
@@ -409,36 +495,38 @@
 
       flex: 0 0 250px;
 
-      border-radius: var(--radius);
-
       overflow: hidden;
 
-      background: var(--card);
+      background: var(--surface-2);
+
+      border-radius: var(--radius);
 
       cursor: pointer;
 
       transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform .25s ease,
+        box-shadow .25s ease;
     }
 
     .video-card:hover {
-      transform: scale(1.05);
-      z-index: 5;
+      transform: scale(1.045);
 
       box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.6);
+        0 20px 45px rgba(0,0,0,.55);
+
+      z-index: 20;
     }
 
     .thumbnail {
       position: relative;
 
       width: 100%;
+
       aspect-ratio: 16 / 9;
 
-      overflow: hidden;
-
       background: #222;
+
+      overflow: hidden;
     }
 
     .thumbnail img {
@@ -447,7 +535,7 @@
 
       object-fit: cover;
 
-      transition: transform 0.4s ease;
+      transition: transform .4s ease;
     }
 
     .video-card:hover .thumbnail img {
@@ -458,13 +546,15 @@
       content: "";
 
       position: absolute;
+
       inset: 0;
 
-      background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.55),
-        transparent 60%
-      );
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,.55),
+          transparent 60%
+        );
     }
 
     .play-overlay {
@@ -473,27 +563,25 @@
       top: 50%;
       left: 50%;
 
-      transform: translate(-50%, -50%);
+      transform: translate(-50%,-50%);
 
       width: 50px;
       height: 50px;
 
-      border-radius: 50%;
-
-      background: rgba(255, 255, 255, 0.92);
-
-      color: black;
-
       display: grid;
       place-items: center;
 
-      font-size: 1.1rem;
+      border-radius: 50%;
+
+      background: white;
+
+      color: black;
 
       opacity: 0;
 
-      transition: 0.2s;
+      transition: .2s;
 
-      z-index: 2;
+      z-index: 3;
     }
 
     .video-card:hover .play-overlay {
@@ -508,14 +596,15 @@
 
       padding: 4px 7px;
 
+      background: rgba(0,0,0,.85);
+
       border-radius: 5px;
 
-      background: rgba(0, 0, 0, 0.8);
+      font-size: .7rem;
 
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 750;
 
-      z-index: 2;
+      z-index: 4;
     }
 
     .video-info {
@@ -523,31 +612,34 @@
     }
 
     .video-title {
-      font-size: 0.95rem;
+      font-size: .95rem;
+
       font-weight: 750;
 
       white-space: nowrap;
+
       overflow: hidden;
+
       text-overflow: ellipsis;
     }
 
     .video-subtitle {
       margin-top: 5px;
 
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      color: var(--muted);
+
+      font-size: .78rem;
     }
 
-
-    /* ================================
+    /* =========================
        CATEGORIES
-    ================================= */
+    ========================= */
 
     .categories {
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit, minmax(150px, 1fr));
+        repeat(auto-fit,minmax(160px,1fr));
 
       gap: 14px;
     }
@@ -555,113 +647,101 @@
     .category {
       position: relative;
 
-      height: 110px;
-
-      border-radius: var(--radius);
-
-      overflow: hidden;
-
-      cursor: pointer;
+      height: 115px;
 
       display: flex;
       align-items: flex-end;
 
       padding: 16px;
 
-      font-weight: 800;
+      overflow: hidden;
 
-      transition: transform 0.2s;
+      border-radius: var(--radius);
+
+      background-size: cover;
+      background-position: center;
+
+      cursor: pointer;
+
+      transition: .2s;
     }
 
     .category:hover {
       transform: translateY(-5px);
     }
 
-    .category::before {
+    .category::after {
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       background:
         linear-gradient(
           to top,
-          rgba(0, 0, 0, 0.8),
-          rgba(0, 0, 0, 0.1)
+          rgba(0,0,0,.85),
+          transparent
         );
     }
 
     .category span {
       position: relative;
-      z-index: 1;
-   
+
+      z-index: 2;
+
+      font-weight: 850;
     }
 
-    .movies {
-      background:
-        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80")
-        center/cover;
+    /* =========================
+       SEARCH RESULTS
+    ========================= */
+
+    #searchResults {
+      display: none;
     }
 
-    .music {
-      background:
-        url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80")
-        center/cover;
-    
-    }
-    
-
-
-    /* ================================
-       FOOTER
-    ================================= */
-
-    footer {
-      margin-top: 70px;
-
-      padding: 50px 5%;
-
-      border-top: 1px solid var(--border);
-
-      color: var(--text-muted);
-
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-
-      flex-wrap: wrap;
+    #searchResults.active {
+      display: block;
     }
 
-    .footer-brand h2 {
-      color: white;
-      margin-bottom: 10px;
+    #normalContent.hidden {
+      display: none;
     }
 
-    .footer-brand h2 span {
-      color: var(--accent);
+    .search-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fill,minmax(220px,1fr));
+
+      gap: 18px;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 25px;
-
-      flex-wrap: wrap;
+    .search-grid .video-card {
+      width: 100%;
     }
 
-    .footer-links a:hover {
-      color: white;
+    /* =========================
+       EMPTY
+    ========================= */
+
+    .empty {
+      padding: 50px 20px;
+
+      text-align: center;
+
+      color: var(--muted);
     }
 
-
-    /* ================================
-       VIDEO MODAL
-    ================================= */
+    /* =========================
+       MODAL
+    ========================= */
 
     .modal {
       position: fixed;
-      inset: 0;
 
-      background: rgba(0, 0, 0, 0.85);
+      inset: 0;
 
       display: none;
       align-items: center;
@@ -669,7 +749,9 @@
 
       padding: 20px;
 
-      z-index: 2000;
+      background: rgba(0,0,0,.88);
+
+      z-index: 3000;
     }
 
     .modal.active {
@@ -679,19 +761,21 @@
     .modal-content {
       position: relative;
 
-      width: min(100%, 900px);
+      width: min(100%,950px);
+
+      max-height: 95vh;
+
+      overflow-y: auto;
 
       background: #111;
 
       border-radius: 16px;
 
-      overflow: hidden;
-
       box-shadow:
-        0 30px 100px rgba(0, 0, 0, 0.8);
+        0 30px 100px rgba(0,0,0,.8);
     }
 
-    .modal-close {
+    .close {
       position: absolute;
 
       top: 12px;
@@ -700,63 +784,160 @@
       width: 40px;
       height: 40px;
 
+      display: grid;
+      place-items: center;
+
       border-radius: 50%;
 
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0,0,0,.75);
+
       color: white;
 
-      font-size: 1.2rem;
+      font-size: 1.1rem;
 
-      z-index: 10;
+      z-index: 20;
     }
 
-    .modal-video {
+    .player-wrapper {
       width: 100%;
 
       aspect-ratio: 16 / 9;
 
       background: black;
-
-      display: grid;
-      place-items: center;
-
-      color: #777;
     }
 
-    .modal-details {
+    #videoPlayer {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+    }
+
+    .modal-info {
       padding: 25px;
     }
 
-    .modal-details h2 {
+    .modal-info h2 {
+      margin-bottom: 8px;
+
+      font-size: 1.6rem;
+    }
+
+    .modal-meta {
+      margin-bottom: 15px;
+
+      color: var(--muted);
+
+      font-size: .85rem;
+    }
+
+    .modal-info p {
+      color: #bbb;
+
+      line-height: 1.7;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+      flex-wrap: wrap;
+
+      margin-top: 60px;
+
+      padding: 50px 5%;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+    }
+
+    .footer-brand h2 {
+      color: white;
+
+      margin-bottom: 8px;
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 24px;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* =========================
+       ERROR
+    ========================= */
+
+    #error {
+      display: none;
+
+      min-height: 100vh;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px;
+
+      text-align: center;
+    }
+
+    #error.active {
+      display: flex;
+    }
+
+    #error h2 {
       margin-bottom: 10px;
     }
 
-    .modal-details p {
-      color: var(--text-muted);
+    #error p {
+      color: var(--muted);
+
+      max-width: 600px;
+
       line-height: 1.6;
     }
 
+    /* =========================
+       MOBILE
+    ========================= */
 
-    /* ================================
-       RESPONSIVE
-    ================================= */
-
-    @media (max-width: 800px) {
+    @media(max-width:800px) {
 
       .nav-links {
         display: none;
       }
 
       .search input {
-        width: 150px;
+        width: 160px;
       }
 
       .search input:focus {
-        width: 180px;
+        width: 190px;
       }
 
       .hero {
         min-height: 620px;
+
+        padding:
+          110px 6%
+          90px;
       }
 
       .hero h1 {
@@ -764,12 +945,16 @@
       }
 
       main {
-        margin-top: -50px;
+        margin-top: -45px;
+      }
+
+      .video-card {
+        flex-basis: 205px;
       }
 
     }
 
-    @media (max-width: 520px) {
+    @media(max-width:520px) {
 
       .navbar {
         padding: 0 4%;
@@ -780,16 +965,11 @@
       }
 
       .hero {
-        padding-left: 6%;
-        padding-right: 6%;
+        min-height: 600px;
       }
 
       .hero-description {
-        font-size: 0.95rem;
-      }
-
-      .video-card {
-        flex-basis: 190px;
+        font-size: .9rem;
       }
 
       .content-section {
@@ -797,545 +977,1229 @@
         padding-right: 4%;
       }
 
-    }
+      .video-card {
+        flex-basis: 185px;
+      }
 
+      .categories {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .category {
+        height: 100px;
+      }
+
+    }
   </style>
+
 </head>
 
 <body>
 
+  <!-- LOADING -->
 
-  <!-- ================================
-       NAVBAR
-  ================================= -->
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+  <!-- ERROR -->
+
+  <div id="error">
+
+```
+<div>
+
+  <h2>Unable to load StreamHub</h2>
+
+  <p id="errorMessage">
+    Make sure videos.json exists in the same folder as index.html.
+  </p>
+
+</div>
+```
+
+  </div>
+
+  <!-- NAVBAR -->
 
   <header class="navbar" id="navbar">
 
-    <div class="nav-left">
+```
+<div class="nav-left">
 
-      <a href="#" class="logo">
-        Video<span>Flick</span>
-      </a>
+  <a href="#" class="logo" id="siteLogo">
+    Stream<span>Hub</span>
+  </a>
 
-      <nav class="nav-links">
-        <a href="#" class="active">Home</a>
-        <a href="#trending">Trending</a>
-        <a href="#recent">Recently Added</a>
-        <a href="#categories">Categories</a>
-      </nav>
+  <nav class="nav-links">
 
-    </div>
+    <a href="#" class="active">
+      Home
+    </a>
+
+    <a href="#trending">
+      Trending
+    </a>
+
+    <a href="#recent">
+      Recently Added
+    </a>
+
+    <a href="#categories">
+      Categories
+    </a>
+
+  </nav>
+
+</div>
 
 
-    <div class="nav-right">
+<div class="nav-right">
 
-      <div class="search">
-        <span class="search-icon">⌕</span>
+  <div class="search">
 
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search videos..."
-        />
-      </div>
+    <span class="search-icon">
+      🔍
+    </span>
 
-      <button class="profile">
-        U
-      </button>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search videos..."
+      autocomplete="off"
+    >
 
-    </div>
+  </div>
+
+  <button class="profile">
+    U
+  </button>
+
+</div>
+```
 
   </header>
 
+  <!-- HERO -->
 
+  <section class="hero" id="hero">
 
-  <!-- ================================
-       HERO
-  ================================= -->
+```
+<div
+  class="hero-background"
+  id="heroBackground"
+></div>
 
-  <section class="hero">
+<div class="hero-overlay"></div>
 
-    <div class="hero-background"></div>
+<div class="hero-bottom"></div>
 
-    <div class="hero-content">
 
-      <div class="featured-label">
-        <span class="featured-dot"></span>
-        FEATURED STREAM
-      </div>
+<div class="hero-content">
 
-      <h1>
-        ENTER THE
-        <span>NEXT LEVEL.</span>
-      </h1>
+  <div class="featured-label">
 
-      <div class="hero-meta">
-        <span>2026</span>
-        <span>•</span>
-        <span>HD</span>
-        <span>•</span>
-        <span>1h 42m</span>
-      </div>
+    <span class="featured-dot"></span>
 
-      <p class="hero-description">
-        Discover incredible videos, live streams and exclusive content.
-        Watch what you love, whenever you want.
-      </p>
-
-      <div class="hero-buttons">
-
-        <button class="btn btn-primary" onclick="openFeatured()">
-          ▶ Watch Now
-        </button>
-
-        <button class="btn btn-secondary">
-          ⓘ More Info
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ================================
-       MAIN
-  ================================= -->
-
-  <main>
-
-
-    <!-- TRENDING -->
-
-    <section
-      class="content-section"
-      id="trending"
-    >
-
-      <div class="section-header">
-
-        <h2 class="section-title">
-          🔥 Trending Now
-        </h2>
-
-        <a href="#" class="see-all">
-          See All →
-        </a>
-
-      </div>
-
-
-      <div class="video-row" id="trendingRow">
-
-        <div
-          class="video-card"
-          data-title="Midnight City"
-          onclick="openVideo('Midnight City', 'A cinematic journey through the city after dark.')"
-        >
-
-          <div class="thumbnail">
-
-            <img
-              src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80"
-              alt="Midnight City"
-            >
-
-            <div class="play-overlay">▶</div>
-
-            <span class="duration">12:34</span>
-
-          </div>
-
-          <div class="video-info">
-            <div class="video-title">Midnight City</div>
-            <div class="video-subtitle">1.2M views</div>
-          </div>
-
-        </div>
-
-
-        <div
-          class="video-card"
-          data-title="Into The Wild"
-          onclick="openVideo('Into The Wild', 'Explore incredible places and landscapes around the world.')"
-        >
-
-          <div class="thumbnail">
-
-            <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
-              alt="Into The Wild"
-            >
-
-            <div class="play-overlay">▶</div>
-
-            <span class="duration">24:18</span>
-
-          </div>
-
-          <div class="video-info">
-            <div class="video-title">Into The Wild</div>
-            <div class="video-subtitle">842K views</div>
-          </div>
-
-        </div>
-
-
-        <div
-          class="video-card"
-          data-title="The Future"
-          onclick="openVideo('The Future', 'Technology, AI and the world of tomorrow.')"
-        >
-
-          <div class="thumbnail">
-
-            <img
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
-              alt="The Future"
-            >
-
-            <div class="play-overlay">▶</div>
-
-            <span class="duration">18:02</span>
-
-          </div>
-
-          <div class="video-info">
-            <div class="video-title">The Future</div>
-            <div class="video-subtitle">2.4M views</div>
-          </div>
-
-        </div>
-
-
-        <div
-          class="video-card"
-          data-title="Neon Nights"
-          onclick="openVideo('Neon Nights', 'A visual experience inspired by neon cities.')"
-        >
-
-          <div class="thumbnail">
-
-            <img
-              src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80"
-              alt="Neon Nights"
-            >
-
-            <div class="play-overlay">▶</div>
-
-            <span class="duration">31:09</span>
-
-          </div>
-
-          <div class="video-info">
-            <div class="video-title">Neon Nights</div>
-            <div class="video-subtitle">638K views</div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- RECENTLY ADDED -->
-
-    <section
-      class="content-section"
-      id="recent"
-    >
-
-      <div class="section-header">
-
-        <h2 class="section-title">
-          Recently Added
-        </h2>
-
-        <a href="#" class="see-all">
-          See All →
-        </a>
-
-      </div>
-
-
-      <div class="video-row">
-
-        <div
-          class="video-card"
-          data-title="Gaming Universe"
-          onclick="openVideo('Gaming Universe', 'The latest and greatest from the gaming world.')"
-        >
-
-          <div class="thumbnail">
-
-            <img
-              src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80"
-              alt="Gaming Universe"
-            >
-
-            <div class="play-overlay">▶</div>
-
-            <span class="duration">15:44</span>
-
-          </div>
-
-          <div class="video-info">
-            <div class="video-title">Gaming Universe</div>
-            <div class="video-subtitle">New today</div>
-          </div>
-
-        </div>
-
-
-        <div
-          class="video-card"
-          data-title="Sound Waves"
-          onclick="openVideo('Sound Waves', 'A journey through sound and music.')"
-        >
-
-          <div class="thumbnail">
-
-            <img
-              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80"
-              alt="Sound Waves"
-            >
-
-            <div class="play-overlay">▶</div>
-
-            <span class="duration">42:10</span>
-
-          </div>
-
-          <div class="video-info">
-            <div class="video-title">Sound Waves</div>
-            <div class="video-subtitle">New today</div>
-          </div>
-
-        </div>
-
-
-        <div
-          class="video-card"
-          data-title="Beyond Earth"
-          onclick="openVideo('Beyond Earth', 'Exploring the mysteries of space.')"
-        >
-
-          <div class="thumbnail">
-
-            <img
-              src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80"
-              alt="Beyond Earth"
-            >
-
-            <div class="play-overlay">▶</div>
-
-            <span class="duration">28:55</span>
-
-          </div>
-
-          <div class="video-info">
-            <div class="video-title">Beyond Earth</div>
-            <div class="video-subtitle">New today</div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- CATEGORIES -->
-
-    <section
-      class="content-section"
-      id="categories"
-    >
-
-      <div class="section-header">
-
-        <h2 class="section-title">
-          Browse Categories
-        </h2>
-
-      </div>
-
-
-      <div class="categories">
-
-        <div class="category gaming">
-          <span>🎮 Gaming</span>
-        </div>
-
-        <div class="category movies">
-          <span>🎬 Movies</span>
-        </div>
-
-        <div class="category music">
-          <span>🎵 Music</span>
-        </div>
-
-        <div class="category live">
-          <span>🔴 Live</span>
-        </div>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- ================================
-       FOOTER
-  ================================= -->
-
-  <footer>
-
-    <div class="footer-brand">
-
-      <h2>
-        Stream<span>Hub</span>
-      </h2>
-
-      <p>
-        Watch. Discover. Stream.
-      </p>
-
-    </div>
-
-
-    <div class="footer-links">
-
-      <a href="#">About</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Contact</a>
-
-    </div>
-
-  </footer>
-
-
-
-  <!-- ================================
-       VIDEO MODAL
-  ================================= -->
-
-  <div
-    class="modal"
-    id="videoModal"
-    onclick="closeOutside(event)"
-  >
-
-    <div class="modal-content">
-
-      <button
-        class="modal-close"
-        onclick="closeVideo()"
-      >
-        ✕
-      </button>
-
-
-      <div class="modal-video" id="modalVideo">
-
-        ▶ Video player goes here
-
-      </div>
-
-
-      <div class="modal-details">
-
-        <h2 id="modalTitle">
-          Video Title
-        </h2>
-
-        <p id="modalDescription">
-          Video description.
-        </p>
-
-      </div>
-
-    </div>
+    FEATURED
 
   </div>
 
 
+  <h1 id="heroTitle">
+    StreamHub
+  </h1>
 
-  <!-- ================================
-       JAVASCRIPT
-  ================================= -->
+
+  <div
+    class="hero-meta"
+    id="heroMeta"
+  ></div>
+
+
+  <p
+    class="hero-description"
+    id="heroDescription"
+  ></p>
+
+
+  <div class="hero-buttons">
+
+    <button
+      class="btn btn-primary"
+      id="heroWatch"
+    >
+      ▶ Watch Now
+    </button>
+
+    <button
+      class="btn btn-secondary"
+      id="heroInfo"
+    >
+      ⓘ More Info
+    </button>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- MAIN -->
+
+  <main id="normalContent">
+
+```
+<!-- TRENDING -->
+
+<section
+  class="content-section"
+  id="trending"
+>
+
+  <div class="section-header">
+
+    <h2 class="section-title">
+      🔥 Trending Now
+    </h2>
+
+    <a
+      href="#"
+      class="see-all"
+    >
+      See All →
+    </a>
+
+  </div>
+
+  <div
+    class="video-row"
+    id="trendingRow"
+  ></div>
+
+</section>
+
+
+<!-- RECENT -->
+
+<section
+  class="content-section"
+  id="recent"
+>
+
+  <div class="section-header">
+
+    <h2 class="section-title">
+      Recently Added
+    </h2>
+
+    <a
+      href="#"
+      class="see-all"
+    >
+      See All →
+    </a>
+
+  </div>
+
+  <div
+    class="video-row"
+    id="recentRow"
+  ></div>
+
+</section>
+
+
+<!-- ALL VIDEOS -->
+
+<section
+  class="content-section"
+  id="allVideos"
+>
+
+  <div class="section-header">
+
+    <h2 class="section-title">
+      All Videos
+    </h2>
+
+  </div>
+
+  <div
+    class="video-row"
+    id="allVideosRow"
+  ></div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section
+  class="content-section"
+  id="categories"
+>
+
+  <div class="section-header">
+
+    <h2 class="section-title">
+      Browse Categories
+    </h2>
+
+  </div>
+
+  <div
+    class="categories"
+    id="categoriesGrid"
+  ></div>
+
+</section>
+```
+
+  </main>
+
+  <!-- SEARCH RESULTS -->
+
+  <section
+    class="content-section"
+    id="searchResults"
+  >
+
+```
+<div class="section-header">
+
+  <h2 class="section-title">
+    Search Results
+  </h2>
+
+</div>
+
+<div
+  class="search-grid"
+  id="searchGrid"
+></div>
+
+<div
+  class="empty"
+  id="noResults"
+  style="display:none;"
+>
+  No videos found.
+</div>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+```
+<div class="footer-brand">
+
+  <h2 id="footerLogo">
+    Stream<span>Hub</span>
+  </h2>
+
+  <p>
+    Watch. Discover. Stream.
+  </p>
+
+</div>
+
+
+<div class="footer-links">
+
+  <a href="#">
+    About
+  </a>
+
+  <a href="#">
+    Privacy
+  </a>
+
+  <a href="#">
+    Terms
+  </a>
+
+  <a href="#">
+    Contact
+  </a>
+
+</div>
+```
+
+  </footer>
+
+  <!-- VIDEO MODAL -->
+
+  <div
+    class="modal"
+    id="videoModal"
+  >
+
+```
+<div class="modal-content">
+
+  <button
+    class="close"
+    id="closeModal"
+  >
+    ✕
+  </button>
+
+
+  <div class="player-wrapper">
+
+    <video
+      id="videoPlayer"
+      controls
+      playsinline
+      preload="metadata"
+    >
+      Your browser does not support HTML5 video.
+    </video>
+
+  </div>
+
+
+  <div class="modal-info">
+
+    <h2 id="modalTitle">
+      Video
+    </h2>
+
+    <div
+      class="modal-meta"
+      id="modalMeta"
+    ></div>
+
+    <p
+      id="modalDescription"
+    ></p>
+
+  </div>
+
+</div>
+```
+
+  </div>
 
   <script>
 
-    const navbar =
-      document.getElementById("navbar");
+    /*
+      ==========================================================
+      STREAMHUB
+      JSON-DRIVEN VIDEO WEBSITE
+      ==========================================================
 
-    const modal =
-      document.getElementById("videoModal");
+      This page automatically loads:
 
-    const modalTitle =
-      document.getElementById("modalTitle");
+        videos.json
 
-    const modalDescription =
-      document.getElementById("modalDescription");
+      Expected structure:
+
+        site
+        featured
+        categories
+        videos
+
+      You should NOT need to manually add video cards here.
+    */
 
 
-    /* NAVBAR SCROLL */
+    let siteData = null;
 
-    window.addEventListener("scroll", () => {
+    let allVideos = [];
 
-      if (window.scrollY > 30) {
 
-        navbar.classList.add("scrolled");
+    /* ==========================================================
+       LOAD JSON
+    ========================================================== */
 
-      } else {
+    async function loadSite() {
 
-        navbar.classList.remove("scrolled");
+      try {
+
+        const response = await fetch("videos.json");
+
+        if (!response.ok) {
+
+          throw new Error(
+            "videos.json could not be found."
+          );
+
+        }
+
+        siteData = await response.json();
+
+        allVideos = Array.isArray(siteData.videos)
+          ? siteData.videos
+          : [];
+
+        renderSite();
+
+        document
+          .getElementById("loading")
+          .classList.add("hidden");
 
       }
 
-    });
+      catch(error) {
 
+        console.error(error);
 
-    /* OPEN VIDEO */
+        document
+          .getElementById("loading")
+          .classList.add("hidden");
 
-    function openVideo(title, description) {
+        document
+          .getElementById("error")
+          .classList.add("active");
 
-      modalTitle.textContent = title;
+        document
+          .getElementById("errorMessage")
+          .textContent =
+            error.message +
+            " Make sure you are running the website through GitHub Pages or a web server.";
 
-      modalDescription.textContent = description;
-
-      modal.classList.add("active");
-
-      document.body.style.overflow = "hidden";
+      }
 
     }
 
 
-    /* FEATURED VIDEO */
+    /* ==========================================================
+       RENDER EVERYTHING
+    ========================================================== */
 
-    function openFeatured() {
+    function renderSite() {
 
-      openVideo(
-        "ENTER THE NEXT LEVEL",
-        "This is your featured content. Replace this section with your real video player or streaming URL."
+      renderSiteInfo();
+
+      renderFeatured();
+
+      renderTrending();
+
+      renderRecent();
+
+      renderAllVideos();
+
+      renderCategories();
+
+    }
+
+
+    /* ==========================================================
+       SITE INFO
+    ========================================================== */
+
+    function renderSiteInfo() {
+
+      if (!siteData.site) return;
+
+      const name =
+        siteData.site.name || "StreamHub";
+
+      document.title = name;
+
+      document.getElementById(
+        "siteLogo"
+      ).innerHTML =
+        formatLogo(name);
+
+      document.getElementById(
+        "footerLogo"
+      ).innerHTML =
+        formatLogo(name);
+
+    }
+
+
+    function formatLogo(name) {
+
+      const words =
+        name.trim().split(" ");
+
+      if (words.length === 1) {
+
+        return escapeHTML(name);
+
+      }
+
+      const last =
+        words.pop();
+
+      return (
+        escapeHTML(words.join(" ")) +
+        '<span>' +
+        escapeHTML(last) +
+        '</span>'
       );
 
     }
 
 
-    /* CLOSE VIDEO */
+    /* ==========================================================
+       FEATURED
+    ========================================================== */
+
+    function renderFeatured() {
+
+      const featured =
+        siteData.featured;
+
+      if (!featured) return;
+
+
+      const background =
+        document.getElementById(
+          "heroBackground"
+        );
+
+
+      if (featured.thumbnail) {
+
+        background.style.backgroundImage =
+          `
+          linear-gradient(
+            90deg,
+            rgba(8,8,8,.2),
+            rgba(8,8,8,.1)
+          ),
+          url("${featured.thumbnail}")
+          `;
+
+      }
+
+
+      document.getElementById(
+        "heroTitle"
+      ).innerHTML =
+        formatHeroTitle(
+          featured.title || "Featured"
+        );
+
+
+      document.getElementById(
+        "heroDescription"
+      ).textContent =
+        featured.description || "";
+
+
+      const meta = [];
+
+      if (featured.year)
+        meta.push(featured.year);
+
+      if (featured.quality)
+        meta.push(featured.quality);
+
+      if (featured.duration)
+        meta.push(featured.duration);
+
+
+      document.getElementById(
+        "heroMeta"
+      ).innerHTML =
+        meta
+          .map(item =>
+            `<span>${escapeHTML(String(item))}</span>`
+          )
+          .join("<span>•</span>");
+
+
+      document.getElementById(
+        "heroWatch"
+      ).onclick = () => {
+
+        if (featured.video) {
+
+          openVideo(
+            featured,
+            featured.title,
+            featured.description
+          );
+
+        } else {
+
+          showInfo(
+            featured.title,
+            featured.description
+          );
+
+        }
+
+      };
+
+
+      document.getElementById(
+        "heroInfo"
+      ).onclick = () => {
+
+        showInfo(
+          featured.title,
+          featured.description
+        );
+
+      };
+
+    }
+
+
+    function formatHeroTitle(title) {
+
+      const words =
+        title.split(" ");
+
+      if (words.length < 2) {
+
+        return escapeHTML(title);
+
+      }
+
+      const first =
+        words.slice(0,-1).join(" ");
+
+      const last =
+        words[words.length - 1];
+
+      return `
+        ${escapeHTML(first)}
+        <span>${escapeHTML(last)}</span>
+      `;
+
+    }
+
+
+    /* ==========================================================
+       TRENDING
+    ========================================================== */
+
+    function renderTrending() {
+
+      const videos =
+        allVideos.filter(
+          video => video.trending === true
+        );
+
+      renderVideoRow(
+        "trendingRow",
+        videos
+      );
+
+    }
+
+
+    /* ==========================================================
+       RECENT
+    ========================================================== */
+
+    function renderRecent() {
+
+      const videos =
+        allVideos
+          .filter(
+            video => video.recent === true
+          )
+          .sort(
+            (a,b) =>
+              new Date(b.added || 0) -
+              new Date(a.added || 0)
+          );
+
+      renderVideoRow(
+        "recentRow",
+        videos
+      );
+
+    }
+
+
+    /* ==========================================================
+       ALL VIDEOS
+    ========================================================== */
+
+    function renderAllVideos() {
+
+      renderVideoRow(
+        "allVideosRow",
+        allVideos
+      );
+
+    }
+
+
+    /* ==========================================================
+       VIDEO ROW
+    ========================================================== */
+
+    function renderVideoRow(
+      containerId,
+      videos
+    ) {
+
+      const container =
+        document.getElementById(
+          containerId
+        );
+
+
+      container.innerHTML = "";
+
+
+      if (!videos.length) {
+
+        container.innerHTML =
+          `
+          <div class="empty">
+            No videos available yet.
+          </div>
+          `;
+
+        return;
+
+      }
+
+
+      videos.forEach(video => {
+
+        container.appendChild(
+          createVideoCard(video)
+        );
+
+      });
+
+    }
+
+
+    /* ==========================================================
+       CREATE VIDEO CARD
+    ========================================================== */
+
+    function createVideoCard(video) {
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "video-card";
+
+      card.dataset.title =
+        video.title || "";
+
+
+      const thumbnail =
+        video.thumbnail ||
+        "https://via.placeholder.com/640x360?text=No+Thumbnail";
+
+
+      const views =
+        video.views
+          ? `${video.views} views`
+          : "";
+
+
+      card.innerHTML = `
+
+        <div class="thumbnail">
+
+          <img
+            src="${escapeAttribute(thumbnail)}"
+            alt="${escapeAttribute(video.title || "Video")}"
+            loading="lazy"
+          >
+
+          <div class="play-overlay">
+            ▶
+          </div>
+
+          ${
+            video.duration
+              ? `
+                <span class="duration">
+                  ${escapeHTML(video.duration)}
+                </span>
+              `
+              : ""
+          }
+
+        </div>
+
+        <div class="video-info">
+
+          <div class="video-title">
+            ${escapeHTML(video.title || "Untitled")}
+          </div>
+
+          <div class="video-subtitle">
+            ${escapeHTML(views)}
+          </div>
+
+        </div>
+
+      `;
+
+
+      card.addEventListener(
+        "click",
+        () => {
+
+          openVideo(
+            video,
+            video.title,
+            video.description
+          );
+
+        }
+      );
+
+
+      return card;
+
+    }
+
+
+    /* ==========================================================
+       CATEGORIES
+    ========================================================== */
+
+    function renderCategories() {
+
+      const container =
+        document.getElementById(
+          "categoriesGrid"
+        );
+
+
+      container.innerHTML = "";
+
+
+      if (
+        !siteData.categories ||
+        !siteData.categories.length
+      ) {
+
+        return;
+
+      }
+
+
+      siteData.categories.forEach(category => {
+
+        const element =
+          document.createElement("div");
+
+        element.className =
+          "category";
+
+
+        if (category.image) {
+
+          element.style.backgroundImage =
+            `url("${category.image}")`;
+
+        }
+
+
+        element.innerHTML = `
+          <span>
+            ${escapeHTML(category.icon || "")}
+            ${escapeHTML(category.name || "Category")}
+          </span>
+        `;
+
+
+        element.addEventListener(
+          "click",
+          () => {
+
+            showCategory(
+              category.name
+            );
+
+          }
+        );
+
+
+        container.appendChild(element);
+
+      });
+
+    }
+
+
+    /* ==========================================================
+       CATEGORY FILTER
+    ========================================================== */
+
+    function showCategory(categoryName) {
+
+      const videos =
+        allVideos.filter(
+          video =>
+            String(video.category || "")
+              .toLowerCase() ===
+            String(categoryName)
+              .toLowerCase()
+        );
+
+
+      document.getElementById(
+        "searchGrid"
+      ).innerHTML = "";
+
+
+      videos.forEach(video => {
+
+        document
+          .getElementById("searchGrid")
+          .appendChild(
+            createVideoCard(video)
+          );
+
+      });
+
+
+      document.getElementById(
+        "searchResults"
+      ).classList.add("active");
+
+
+      document.getElementById(
+        "normalContent"
+      ).classList.add("hidden");
+
+
+      document.querySelector(
+        "#searchResults .section-title"
+      ).textContent =
+        categoryName;
+
+
+      document.getElementById(
+        "noResults"
+      ).style.display =
+        videos.length
+          ? "none"
+          : "block";
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* ==========================================================
+       SEARCH
+    ========================================================== */
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+
+    searchInput.addEventListener(
+      "input",
+      handleSearch
+    );
+
+
+    function handleSearch() {
+
+      const query =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
+      if (!query) {
+
+        closeSearch();
+
+        return;
+
+      }
+
+
+      const results =
+        allVideos.filter(video => {
+
+          const title =
+            String(video.title || "")
+              .toLowerCase();
+
+          const description =
+            String(video.description || "")
+              .toLowerCase();
+
+          const category =
+            String(video.category || "")
+              .toLowerCase();
+
+
+          return (
+            title.includes(query) ||
+            description.includes(query) ||
+            category.includes(query)
+          );
+
+        });
+
+
+      const grid =
+        document.getElementById(
+          "searchGrid"
+        );
+
+
+      grid.innerHTML = "";
+
+
+      results.forEach(video => {
+
+        grid.appendChild(
+          createVideoCard(video)
+        );
+
+      });
+
+
+      document.getElementById(
+        "searchResults"
+      ).classList.add("active");
+
+
+      document.getElementById(
+        "normalContent"
+      ).classList.add("hidden");
+
+
+      document.getElementById(
+        "noResults"
+      ).style.display =
+        results.length
+          ? "none"
+          : "block";
+
+
+      document.querySelector(
+        "#searchResults .section-title"
+      ).textContent =
+        `Search Results for "${searchInput.value}"`;
+
+    }
+
+
+    function closeSearch() {
+
+      document.getElementById(
+        "searchResults"
+      ).classList.remove("active");
+
+
+      document.getElementById(
+        "normalContent"
+      ).classList.remove("hidden");
+
+    }
+
+
+    /* ==========================================================
+       VIDEO PLAYER
+    ========================================================== */
+
+    const modal =
+      document.getElementById(
+        "videoModal"
+      );
+
+    const player =
+      document.getElementById(
+        "videoPlayer"
+      );
+
+
+    function openVideo(
+      video,
+      title,
+      description
+    ) {
+
+      if (!video.video) {
+
+        showInfo(
+          title,
+          description
+        );
+
+        return;
+
+      }
+
+
+      document.getElementById(
+        "modalTitle"
+      ).textContent =
+        title || "Video";
+
+
+      document.getElementById(
+        "modalDescription"
+      ).textContent =
+        description || "";
+
+
+      const meta = [];
+
+
+      if (video.year)
+        meta.push(video.year);
+
+      if (video.category)
+        meta.push(video.category);
+
+      if (video.duration)
+        meta.push(video.duration);
+
+      if (video.views)
+        meta.push(`${video.views} views`);
+
+
+      document.getElementById(
+        "modalMeta"
+      ).textContent =
+        meta.join(" • ");
+
+
+      player.pause();
+
+      player.src = video.video;
+
+      player.load();
+
+
+      modal.classList.add("active");
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
 
     function closeVideo() {
+
+      player.pause();
+
+      player.removeAttribute("src");
+
+      player.load();
+
 
       modal.classList.remove("active");
 
@@ -1344,66 +2208,153 @@
     }
 
 
-    /* CLOSE WHEN CLICKING BACKGROUND */
+    /* CLOSE BUTTON */
 
-    function closeOutside(event) {
+    document.getElementById(
+      "closeModal"
+    ).addEventListener(
+      "click",
+      closeVideo
+    );
 
-      if (event.target === modal) {
 
-        closeVideo();
+    /* CLICK OUTSIDE */
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeVideo();
+
+        }
 
       }
+    );
+
+
+    /* ESCAPE */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeVideo();
+
+        }
+
+      }
+    );
+
+
+    /* ==========================================================
+       INFO
+    ========================================================== */
+
+    function showInfo(
+      title,
+      description
+    ) {
+
+      document.getElementById(
+        "modalTitle"
+      ).textContent =
+        title || "Information";
+
+
+      document.getElementById(
+        "modalMeta"
+      ).textContent = "";
+
+
+      document.getElementById(
+        "modalDescription"
+      ).textContent =
+        description || "";
+
+
+      player.removeAttribute("src");
+
+      player.load();
+
+
+      modal.classList.add("active");
+
+      document.body.style.overflow =
+        "hidden";
 
     }
 
 
-    /* ESCAPE KEY */
+    /* ==========================================================
+       NAVBAR
+    ========================================================== */
 
-    document.addEventListener("keydown", (event) => {
+    window.addEventListener(
+      "scroll",
+      () => {
 
-      if (event.key === "Escape") {
-
-        closeVideo();
-
-      }
-
-    });
+        const navbar =
+          document.getElementById(
+            "navbar"
+          );
 
 
-    /* SEARCH */
+        if (window.scrollY > 30) {
 
-    const searchInput =
-      document.getElementById("searchInput");
-
-    searchInput.addEventListener("input", () => {
-
-      const query =
-        searchInput.value.toLowerCase();
-
-      const cards =
-        document.querySelectorAll(".video-card");
-
-      cards.forEach(card => {
-
-        const title =
-          card.dataset.title.toLowerCase();
-
-        if (title.includes(query)) {
-
-          card.style.display = "";
+          navbar.classList.add(
+            "scrolled"
+          );
 
         } else {
 
-          card.style.display = "none";
+          navbar.classList.remove(
+            "scrolled"
+          );
 
         }
 
-      });
+      }
+    );
 
-    });
+
+    /* ==========================================================
+       HELPERS
+    ========================================================== */
+
+    function escapeHTML(value) {
+
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    }
+
+
+    function escapeAttribute(value) {
+
+      return escapeHTML(value);
+
+    }
+
+
+    /* ==========================================================
+       START
+    ========================================================== */
+
+    loadSite();
 
   </script>
-
 
 </body>
 </html>
