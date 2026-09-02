@@ -1,253 +1,327 @@
+```json
 {
-"site": {
-"name": "StreamHub",
-"description": "Watch. Discover. Stream."
-},
+  "site": {
+    "name": "StreamHub",
+    "description": "Watch. Discover. Stream."
+  },
 
-"featured": {
-"title": "Midnight City",
-"description": "A cinematic journey through the city after dark.",
-"thumbnail": "assets/thumbnails/midnight-city.jpg",
-"video": "assets/videos/midnight-city.mp4",
-"category": "Movies",
-"year": 2026,
-"duration": "12:34",
-"quality": "HD"
-},
+  "featured": {
+    "title": "Ted",
+    "description": "A group of friends enter an abandoned facility where something is waiting for them in the dark.",
+    "thumbnail": "assets/thumbnails/catnap.jpg",
+    "video": "assets/videos/TED S01 E01 Just Say Yes.mp4",
+    "category": "Crude Humor",
+    "year": 2024,
+    "duration": "50:46",
+    "quality": "HD"
+  },
 
-"categories": [
-{
-"id": "gaming",
-"name": "Gaming",
-"icon": "🎮",
-"image": "assets/categories/gaming.jpg"
-},
-{
-"id": "movies",
-"name": "Movies",
-"icon": "🎬",
-"image": "assets/categories/movies.jpg"
-},
-{
-"id": "music",
-"name": "Music",
-"icon": "🎵",
-"image": "assets/categories/music.jpg"
-},
-{
-"id": "live",
-"name": "Live",
-"icon": "🔴",
-"image": "assets/categories/live.jpg"
-},
-{
-"id": "animation",
-"name": "Animation",
-"icon": "✨",
-"image": "assets/categories/animation.jpg"
-},
-{
-"id": "horror",
-"name": "Horror",
-"icon": "👻",
-"image": "assets/categories/horror.jpg"
+  "categories": [
+    {
+      "id": "gaming",
+      "name": "Gaming",
+      "icon": "🎮",
+      "image": "assets/categories/gaming.jpg"
+    },
+    {
+      "id": "movies",
+      "name": "Movies",
+      "icon": "🎬",
+      "image": "assets/categories/movies.jpg"
+    },
+    {
+      "id": "music",
+      "name": "Music",
+      "icon": "🎵",
+      "image": "assets/categories/music.jpg"
+    },
+    {
+      "id": "live",
+      "name": "Live",
+      "icon": "🔴",
+      "image": "assets/categories/live.jpg"
+    },
+    {
+      "id": "animation",
+      "name": "Animation",
+      "icon": "✨",
+      "image": "assets/categories/animation.jpg"
+    },
+    {
+      "id": "horror",
+      "name": "Horror",
+      "icon": "👻",
+      "image": "assets/categories/horror.jpg"
+    }
+  ],
+
+  "videos": [
+
+    {
+      "id": "catnap",
+      "type": "series",
+
+      "title": "Catnap",
+
+      "description": "A group of friends enter an abandoned facility where something is waiting for them in the dark.",
+
+      "thumbnail": "assets/thumbnails/catnap.jpg",
+
+      "banner": "assets/banners/ted.png",
+
+      "category": "Horror",
+
+      "year": 2026,
+
+      "featured": true,
+
+      "trending": true,
+
+      "recent": true,
+
+      "added": "2026-09-02",
+
+      "seasons": [
+
+        {
+          "season": 1,
+
+          "episodes": [
+
+            {
+              "episode": 1,
+              "title": "Just Say Yes",
+              "description": "Ted's attempt to get expelled from high school leads him to purchase drugs from an unlikely source.",
+              "thumbnail": "assets/thumbnails/ted-s1-e1.png",
+              "video": "assets/videos/TED S01 E01 Just Say Yes.mp4",
+              "duration": "50:46"
+            },
+
+            {
+              "episode": 2,
+              "title": "My Two Dads",
+              "description": "Ted and John's plan to exact revenge on the school bully inadvertently puts them in a parental role. Matty agrees to get a colonoscopy… on one condition.",
+              "thumbnail": "assets/thumbnails/ted-s1-e2.png",
+              "video": "assets/videos/TED S01 E02 My Two Dads.mp4",
+              "duration": "39:22"
+            },
+
+            {
+              "episode": 3,
+              "title": "The Chase",
+              "description": "Something begins hunting the group through the abandoned corridors.",
+              "thumbnail": "assets/thumbnails/catnap-s1-e3.jpg",
+              "video": "assets/videos/catnap-s1-e3.mp4",
+              "duration": "26:08"
+            }
+          ]
+        },
+
+        {
+          "season": 2,
+
+          "episodes": [
+
+            {
+              "episode": 1,
+              "title": "A New Beginning",
+              "description": "Months later, the survivors return to the facility to uncover what really happened.",
+              "thumbnail": "assets/thumbnails/catnap-s2-e1.jpg",
+              "video": "assets/videos/catnap-s2-e1.mp4",
+              "duration": "25:42"
+            },
+
+            {
+              "episode": 2,
+              "title": "Something Is Wrong",
+              "description": "The facility appears abandoned, but strange sounds begin coming from below.",
+              "thumbnail": "assets/thumbnails/catnap-s2-e2.jpg",
+              "video": "assets/videos/catnap-s2-e2.mp4",
+              "duration": "27:15"
+            }
+          ]
+        }
+
+      ]
+    },
+
+    {
+      "id": "midnight-city",
+      "title": "Midnight City",
+      "description": "A cinematic journey through the city after dark.",
+      "thumbnail": "assets/thumbnails/midnight-city.jpg",
+      "video": "assets/videos/midnight-city.mp4",
+      "category": "Movies",
+      "duration": "12:34",
+      "views": "1.2M",
+      "year": 2026,
+      "featured": false,
+      "trending": true,
+      "recent": false,
+      "added": "2026-08-20"
+    },
+
+    {
+      "id": "into-the-wild",
+      "title": "Into The Wild",
+      "description": "Explore incredible places and landscapes around the world.",
+      "thumbnail": "assets/thumbnails/into-the-wild.jpg",
+      "video": "assets/videos/into-the-wild.mp4",
+      "category": "Movies",
+      "duration": "24:18",
+      "views": "842K",
+      "year": 2026,
+      "featured": false,
+      "trending": true,
+      "recent": false,
+      "added": "2026-08-18"
+    },
+
+    {
+      "id": "the-future",
+      "title": "The Future",
+      "description": "Technology, AI and the world of tomorrow.",
+      "thumbnail": "assets/thumbnails/the-future.jpg",
+      "video": "assets/videos/the-future.mp4",
+      "category": "Movies",
+      "duration": "18:02",
+      "views": "2.4M",
+      "year": 2026,
+      "featured": false,
+      "trending": true,
+      "recent": false,
+      "added": "2026-08-16"
+    },
+
+    {
+      "id": "neon-nights",
+      "title": "Neon Nights",
+      "description": "A visual experience inspired by neon cities and futuristic worlds.",
+      "thumbnail": "assets/thumbnails/neon-nights.jpg",
+      "video": "assets/videos/neon-nights.mp4",
+      "category": "Music",
+      "duration": "31:09",
+      "views": "638K",
+      "year": 2026,
+      "featured": false,
+      "trending": true,
+      "recent": false,
+      "added": "2026-08-14"
+    },
+
+    {
+      "id": "gaming-universe",
+      "title": "Gaming Universe",
+      "description": "The latest and greatest from the gaming world.",
+      "thumbnail": "assets/thumbnails/gaming-universe.jpg",
+      "video": "assets/videos/gaming-universe.mp4",
+      "category": "Gaming",
+      "duration": "15:44",
+      "views": "425K",
+      "year": 2026,
+      "featured": false,
+      "trending": false,
+      "recent": true,
+      "added": "2026-09-01"
+    },
+
+    {
+      "id": "sound-waves",
+      "title": "Sound Waves",
+      "description": "A journey through sound, rhythm and music.",
+      "thumbnail": "assets/thumbnails/sound-waves.jpg",
+      "video": "assets/videos/sound-waves.mp4",
+      "category": "Music",
+      "duration": "42:10",
+      "views": "198K",
+      "year": 2026,
+      "featured": false,
+      "trending": false,
+      "recent": true,
+      "added": "2026-09-01"
+    },
+
+    {
+      "id": "beyond-earth",
+      "title": "Beyond Earth",
+      "description": "Exploring the mysteries of space and the universe.",
+      "thumbnail": "assets/thumbnails/beyond-earth.jpg",
+      "video": "assets/videos/beyond-earth.mp4",
+      "category": "Movies",
+      "duration": "28:55",
+      "views": "302K",
+      "year": 2026,
+      "featured": false,
+      "trending": false,
+      "recent": true,
+      "added": "2026-08-31"
+    },
+
+    {
+      "id": "gaming-legends",
+      "title": "Gaming Legends",
+      "description": "The biggest moments and legendary plays from gaming.",
+      "thumbnail": "assets/thumbnails/gaming-legends.jpg",
+      "video": "assets/videos/gaming-legends.mp4",
+      "category": "Gaming",
+      "duration": "19:21",
+      "views": "514K",
+      "year": 2026,
+      "featured": false,
+      "trending": true,
+      "recent": false,
+      "added": "2026-08-27"
+    },
+
+    {
+      "id": "the-last-signal",
+      "title": "The Last Signal",
+      "description": "A mysterious signal from deep space changes everything.",
+      "thumbnail": "assets/thumbnails/the-last-signal.jpg",
+      "video": "assets/videos/the-last-signal.mp4",
+      "category": "Horror",
+      "duration": "36:44",
+      "views": "723K",
+      "year": 2026,
+      "featured": false,
+      "trending": true,
+      "recent": false,
+      "added": "2026-08-25"
+    },
+
+    {
+      "id": "pixel-world",
+      "title": "Pixel World",
+      "description": "A colorful animated adventure through a strange digital world.",
+      "thumbnail": "assets/thumbnails/pixel-world.jpg",
+      "video": "assets/videos/pixel-world.mp4",
+      "category": "Animation",
+      "duration": "17:39",
+      "views": "386K",
+      "year": 2026,
+      "featured": false,
+      "trending": false,
+      "recent": true,
+      "added": "2026-08-30"
+    },
+
+    {
+      "id": "live-community",
+      "title": "Live Community",
+      "description": "Join the community for live entertainment, games and chat.",
+      "thumbnail": "assets/thumbnails/live-community.jpg",
+      "video": "assets/videos/live-community.mp4",
+      "category": "Live",
+      "duration": "LIVE",
+      "views": "12.8K watching",
+      "year": 2026,
+      "featured": false,
+      "trending": true,
+      "recent": true,
+      "isLive": true,
+      "added": "2026-09-02"
+    }
+
+  ]
 }
-],
-
-"videos": [
-{
-"id": "midnight-city",
-"title": "Midnight City",
-"description": "A cinematic journey through the city after dark.",
-"thumbnail": "assets/thumbnails/midnight-city.jpg",
-"video": "assets/videos/midnight-city.mp4",
-"category": "Movies",
-"duration": "12:34",
-"views": "1.2M",
-"year": 2026,
-"featured": true,
-"trending": true,
-"recent": false,
-"added": "2026-08-20"
-},
-
 ```
-{
-  "id": "into-the-wild",
-  "title": "Into The Wild",
-  "description": "Explore incredible places and landscapes around the world.",
-  "thumbnail": "assets/thumbnails/into-the-wild.jpg",
-  "video": "assets/videos/into-the-wild.mp4",
-  "category": "Movies",
-  "duration": "24:18",
-  "views": "842K",
-  "year": 2026,
-  "featured": false,
-  "trending": true,
-  "recent": false,
-  "added": "2026-08-18"
-},
-
-{
-  "id": "the-future",
-  "title": "The Future",
-  "description": "Technology, AI and the world of tomorrow.",
-  "thumbnail": "assets/thumbnails/the-future.jpg",
-  "video": "assets/videos/the-future.mp4",
-  "category": "Movies",
-  "duration": "18:02",
-  "views": "2.4M",
-  "year": 2026,
-  "featured": false,
-  "trending": true,
-  "recent": false,
-  "added": "2026-08-16"
-},
-
-{
-  "id": "neon-nights",
-  "title": "Neon Nights",
-  "description": "A visual experience inspired by neon cities and futuristic worlds.",
-  "thumbnail": "assets/thumbnails/neon-nights.jpg",
-  "video": "assets/videos/neon-nights.mp4",
-  "category": "Music",
-  "duration": "31:09",
-  "views": "638K",
-  "year": 2026,
-  "featured": false,
-  "trending": true,
-  "recent": false,
-  "added": "2026-08-14"
-},
-
-{
-  "id": "gaming-universe",
-  "title": "Gaming Universe",
-  "description": "The latest and greatest from the gaming world.",
-  "thumbnail": "assets/thumbnails/gaming-universe.jpg",
-  "video": "assets/videos/gaming-universe.mp4",
-  "category": "Gaming",
-  "duration": "15:44",
-  "views": "425K",
-  "year": 2026,
-  "featured": false,
-  "trending": false,
-  "recent": true,
-  "added": "2026-09-01"
-},
-
-{
-  "id": "sound-waves",
-  "title": "Sound Waves",
-  "description": "A journey through sound, rhythm and music.",
-  "thumbnail": "assets/thumbnails/sound-waves.jpg",
-  "video": "assets/videos/sound-waves.mp4",
-  "category": "Music",
-  "duration": "42:10",
-  "views": "198K",
-  "year": 2026,
-  "featured": false,
-  "trending": false,
-  "recent": true,
-  "added": "2026-09-01"
-},
-
-{
-  "id": "beyond-earth",
-  "title": "Beyond Earth",
-  "description": "Explore the mysteries of space and discover what lies beyond our planet.",
-  "thumbnail": "assets/thumbnails/beyond-earth.jpg",
-  "video": "assets/videos/beyond-earth.mp4",
-  "category": "Movies",
-  "duration": "28:55",
-  "views": "302K",
-  "year": 2026,
-  "featured": false,
-  "trending": false,
-  "recent": true,
-  "added": "2026-08-31"
-},
-
-{
-  "id": "gaming-legends",
-  "title": "Gaming Legends",
-  "description": "The greatest gaming moments, players and stories.",
-  "thumbnail": "assets/thumbnails/gaming-legends.jpg",
-  "video": "assets/videos/gaming-legends.mp4",
-  "category": "Gaming",
-  "duration": "21:37",
-  "views": "756K",
-  "year": 2026,
-  "featured": false,
-  "trending": true,
-  "recent": true,
-  "added": "2026-09-02"
-},
-
-{
-  "id": "the-last-signal",
-  "title": "The Last Signal",
-  "description": "A mysterious signal appears from somewhere deep in the unknown.",
-  "thumbnail": "assets/thumbnails/the-last-signal.jpg",
-  "video": "assets/videos/the-last-signal.mp4",
-  "category": "Horror",
-  "duration": "34:21",
-  "views": "512K",
-  "year": 2026,
-  "featured": false,
-  "trending": true,
-  "recent": true,
-  "added": "2026-09-02"
-},
-
-{
-  "id": "catnap",
-  "title": "Catnap",
-  "description": "A mysterious horror story following a group of cats trapped somewhere they shouldn't be.",
-  "thumbnail": "assets/thumbnails/catnap.jpg",
-  "video": "assets/videos/catnap.mp4",
-  "category": "Horror",
-  "duration": "26:42",
-  "views": "1.8M",
-  "year": 2026,
-  "featured": false,
-  "trending": true,
-  "recent": true,
-  "added": "2026-09-02"
-},
-
-{
-  "id": "pixel-world",
-  "title": "Pixel World",
-  "description": "Step into a colourful digital world filled with strange adventures.",
-  "thumbnail": "assets/thumbnails/pixel-world.jpg",
-  "video": "assets/videos/pixel-world.mp4",
-  "category": "Animation",
-  "duration": "16:28",
-  "views": "324K",
-  "year": 2026,
-  "featured": false,
-  "trending": false,
-  "recent": true,
-  "added": "2026-08-30"
-},
-
-{
-  "id": "live-community",
-  "title": "Community Live",
-  "description": "Join the StreamHub community live.",
-  "thumbnail": "assets/thumbnails/live-community.jpg",
-  "video": "assets/videos/live-community.mp4",
-  "category": "Live",
-  "duration": "LIVE",
-  "views": "12.8K",
-  "year": 2026,
-  "featured": false,
-  "trending": true,
-  "recent": true,
-  "added": "2026-09-02"
-}
-```
-
-]
-}
