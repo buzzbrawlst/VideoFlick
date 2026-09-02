@@ -1,14 +1,14 @@
 {
 "site": {
-"name": "StreamHub",
+"name": "VideoFlick",
 "description": "Watch. Discover. Stream."
 },
 
 "featured": {
-"title": "ENTER THE NEXT LEVEL",
-"description": "Discover incredible videos, live streams and exclusive content. Watch what you love, whenever you want.",
-"thumbnail": "assets/thumbnails/featured.jpg",
-"video": "assets/videos/featured.mp4",
+"title": "TED EPISODE 1",
+"description": "In the first episode of the Ted show, titled "Just Say Yes," Ted, the titular anthropomorphic teddy bear, is forced to attend school with his friend John.",
+"thumbnail": "https://images.plex.tv/photo?size=large-1280&url=https:%2F%2Fmetadata-static.plex.tv%2F0%2Fgracenote%2F01f4d1018ccabecafb9ad2011277ff31.jpg",
+"video": "assets/videos/series/ted/featured.mp4",
 "category": "Featured",
 "year": 2026,
 "duration": "1:42:00",
