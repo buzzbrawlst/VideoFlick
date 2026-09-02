@@ -6,9 +6,9 @@
 
   "featured": {
     "title": "Ted",
-    "description": "A group of friends enter an abandoned facility where something is waiting for them in the dark.",
-    "thumbnail": "assets/thumbnails/catnap.jpg",
-    "video": "assets/videos/TED S01 E01 Just Say Yes.mp4",
+    "description": "Ted's attempt to get expelled from high school leads him to purchase drugs from an unlikely source.",
+    "thumbnail": "assets/thumbnails/ted banner2.png",
+    "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E01%20Just%20Say%20Yes.mp4",
     "category": "Crude Humor",
     "year": 2024,
     "duration": "50:46",
@@ -57,7 +57,7 @@
   "videos": [
 
     {
-      "id": "catnap",
+      "id": "Ted",
       "type": "series",
 
       "title": "Catnap",
@@ -66,11 +66,11 @@
 
       "thumbnail": "assets/thumbnails/catnap.jpg",
 
-      "banner": "assets/banners/ted.png",
+      "banner": "assets/banners/ted banner2.png",
 
-      "category": "Horror",
+      "category": "Crude Humor",
 
-      "year": 2026,
+      "year": 2024,
 
       "featured": true,
 
@@ -91,8 +91,8 @@
               "episode": 1,
               "title": "Just Say Yes",
               "description": "Ted's attempt to get expelled from high school leads him to purchase drugs from an unlikely source.",
-              "thumbnail": "assets/thumbnails/ted-s1-e1.png",
-              "video": "assets/videos/TED S01 E01 Just Say Yes.mp4",
+              "thumbnail": "assets/thumbnails/ted1.jpg",
+              "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E01%20Just%20Say%20Yes.mp4",
               "duration": "50:46"
             },
 
@@ -100,18 +100,45 @@
               "episode": 2,
               "title": "My Two Dads",
               "description": "Ted and John's plan to exact revenge on the school bully inadvertently puts them in a parental role. Matty agrees to get a colonoscopy… on one condition.",
-              "thumbnail": "assets/thumbnails/ted-s1-e2.png",
-              "video": "assets/videos/TED S01 E02 My Two Dads.mp4",
+              "thumbnail": "assets/thumbnails/ted2.jpg",
+              "video": "https://ia801408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E02%20My%20Two%20Dads.mp4",
               "duration": "39:22"
             },
 
             {
               "episode": 3,
-              "title": "The Chase",
+              "title": "Ejectile Disfunction",
+              "description": "Ted and John go to extraordinary lengths so that John can watch his first adult film. Matty and Susan's disappointing night out leads Susan to question their relationship.",
+              "thumbnail": "assets/thumbnails/ted3.jpg",
+              "video": "https://ia801408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E03%20Ejectile%20Disfunction.mp4",
+              "duration": "37:09"
+            },
+
+              {
+              "episode": 4,
+              "title": "Subways, Bicycles and Automobiles",
+              "description": "Ted's plan to spend Halloween with John is thwarted when Blaire forces him to be her designated driver for the night. Susan tries to cheer John up by finding him a new friend.",
+              "thumbnail": "assets/thumbnails/ted4.jpg",
+              "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E01%20Just%20Say%20Yes.mp4",
+              "duration": "37:06"
+            },
+
+            {
+              "episode": 5,
+              "title": "Desperately Seeking Susan",
+              "description": "Blaire convinces Matty and Susan to let Ted act as their marriage therapist. After the session, Ted, John and Blaire encourage Susan to pursue the career she abandoned long ago.",
+              "thumbnail": "assets/thumbnails/ted5.jpg",
+              "video": "https://ia801408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E02%20My%20Two%20Dads.mp4",
+              "duration": "33:53"
+            },
+
+            {
+              "episode": 6,
+              "title": "Ejectile Disfunction",
               "description": "Something begins hunting the group through the abandoned corridors.",
               "thumbnail": "assets/thumbnails/catnap-s1-e3.jpg",
-              "video": "assets/videos/catnap-s1-e3.mp4",
-              "duration": "26:08"
+              "video": "https://ia801408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E03%20Ejectile%20Disfunction.mp4",
+              "duration": "37:09"
             }
           ]
         },
