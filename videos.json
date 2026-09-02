@@ -1,17 +1,17 @@
 {
 "site": {
-"name": "VideoFlick",
+"name": "StreamHub",
 "description": "Watch. Discover. Stream."
 },
 
 "featured": {
-"title": "TED EPISODE 1",
-"description": "In the first episode of the Ted show, titled ""Just Say Yes,"" Ted, the titular anthropomorphic teddy bear, is forced to attend school with his friend John.",
-"thumbnail": "https://images.plex.tv/photo?size=large-1280&url=https:%2F%2Fmetadata-static.plex.tv%2F0%2Fgracenote%2F01f4d1018ccabecafb9ad2011277ff31.jpg",
-"video": "assets/videos/series/ted/featured.mp4",
-"category": "Featured",
+"title": "Midnight City",
+"description": "A cinematic journey through the city after dark.",
+"thumbnail": "assets/thumbnails/midnight-city.jpg",
+"video": "assets/videos/midnight-city.mp4",
+"category": "Movies",
 "year": 2026,
-"duration": "1:42:00",
+"duration": "12:34",
 "quality": "HD"
 },
 
@@ -39,6 +39,18 @@
 "name": "Live",
 "icon": "🔴",
 "image": "assets/categories/live.jpg"
+},
+{
+"id": "animation",
+"name": "Animation",
+"icon": "✨",
+"image": "assets/categories/animation.jpg"
+},
+{
+"id": "horror",
+"name": "Horror",
+"icon": "👻",
+"image": "assets/categories/horror.jpg"
 }
 ],
 
@@ -53,7 +65,7 @@
 "duration": "12:34",
 "views": "1.2M",
 "year": 2026,
-"featured": false,
+"featured": true,
 "trending": true,
 "recent": false,
 "added": "2026-08-20"
@@ -143,7 +155,7 @@
 {
   "id": "beyond-earth",
   "title": "Beyond Earth",
-  "description": "Exploring the mysteries of space and the universe.",
+  "description": "Explore the mysteries of space and discover what lies beyond our planet.",
   "thumbnail": "assets/thumbnails/beyond-earth.jpg",
   "video": "assets/videos/beyond-earth.mp4",
   "category": "Movies",
@@ -157,19 +169,82 @@
 },
 
 {
-  "id": "live-now",
-  "title": "Live Now: Community Stream",
-  "description": "Join the community for a live stream and chat.",
-  "thumbnail": "assets/thumbnails/live-now.jpg",
-  "video": "assets/videos/live-now.mp4",
-  "category": "Live",
-  "duration": "LIVE",
-  "views": "12.8K watching",
+  "id": "gaming-legends",
+  "title": "Gaming Legends",
+  "description": "The greatest gaming moments, players and stories.",
+  "thumbnail": "assets/thumbnails/gaming-legends.jpg",
+  "video": "assets/videos/gaming-legends.mp4",
+  "category": "Gaming",
+  "duration": "21:37",
+  "views": "756K",
   "year": 2026,
   "featured": false,
   "trending": true,
   "recent": true,
-  "isLive": true,
+  "added": "2026-09-02"
+},
+
+{
+  "id": "the-last-signal",
+  "title": "The Last Signal",
+  "description": "A mysterious signal appears from somewhere deep in the unknown.",
+  "thumbnail": "assets/thumbnails/the-last-signal.jpg",
+  "video": "assets/videos/the-last-signal.mp4",
+  "category": "Horror",
+  "duration": "34:21",
+  "views": "512K",
+  "year": 2026,
+  "featured": false,
+  "trending": true,
+  "recent": true,
+  "added": "2026-09-02"
+},
+
+{
+  "id": "catnap",
+  "title": "Catnap",
+  "description": "A mysterious horror story following a group of cats trapped somewhere they shouldn't be.",
+  "thumbnail": "assets/thumbnails/catnap.jpg",
+  "video": "assets/videos/catnap.mp4",
+  "category": "Horror",
+  "duration": "26:42",
+  "views": "1.8M",
+  "year": 2026,
+  "featured": false,
+  "trending": true,
+  "recent": true,
+  "added": "2026-09-02"
+},
+
+{
+  "id": "pixel-world",
+  "title": "Pixel World",
+  "description": "Step into a colourful digital world filled with strange adventures.",
+  "thumbnail": "assets/thumbnails/pixel-world.jpg",
+  "video": "assets/videos/pixel-world.mp4",
+  "category": "Animation",
+  "duration": "16:28",
+  "views": "324K",
+  "year": 2026,
+  "featured": false,
+  "trending": false,
+  "recent": true,
+  "added": "2026-08-30"
+},
+
+{
+  "id": "live-community",
+  "title": "Community Live",
+  "description": "Join the StreamHub community live.",
+  "thumbnail": "assets/thumbnails/live-community.jpg",
+  "video": "assets/videos/live-community.mp4",
+  "category": "Live",
+  "duration": "LIVE",
+  "views": "12.8K",
+  "year": 2026,
+  "featured": false,
+  "trending": true,
+  "recent": true,
   "added": "2026-09-02"
 }
 ```
