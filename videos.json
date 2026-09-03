@@ -135,10 +135,19 @@
             {
               "episode": 6,
               "title": "Ejectile Disfunction",
-              "description": "Something begins hunting the group through the abandoned corridors.",
+              "description": "Matty's unorthodox Christmas wish is granted, completely upending the Bennett family dynamic. A trip to church gets John and Ted wondering about Ted's miraculous origin.",
               "thumbnail": "assets/thumbnails/catnap-s1-e3.jpg",
               "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E06%20Loud%20Night.mp4",
               "duration": "43:49"
+            },
+
+             {
+              "episode": 7,
+              "title": "He's Gotta Have It",
+              "description": "As the end of the school year approaches, Ted plots to help John lose his virginity after John learns he is the last virgin in school.",
+              "thumbnail": "assets/thumbnails/ted7.jpg",
+              "video": "https://archive.org/download/Ted-the-complete-tv-show/S01%20E07%20He%27s%20Gotta%20Have%20It.mp4",
+              "duration": "43:00"
             }
           ]
         },
@@ -150,20 +159,20 @@
 
             {
               "episode": 1,
-              "title": "A New Beginning",
-              "description": "Months later, the survivors return to the facility to uncover what really happened.",
-              "thumbnail": "assets/thumbnails/catnap-s2-e1.jpg",
-              "video": "assets/videos/catnap-s2-e1.mp4",
-              "duration": "25:42"
+              "title": "???",
+              "description": "Coming Soon",
+              "thumbnail": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "duration": "???"
             },
 
             {
               "episode": 2,
-              "title": "Something Is Wrong",
-              "description": "The facility appears abandoned, but strange sounds begin coming from below.",
-              "thumbnail": "assets/thumbnails/catnap-s2-e2.jpg",
-              "video": "assets/videos/catnap-s2-e2.mp4",
-              "duration": "27:15"
+              "title": "???",
+              "description": "Coming Soon",
+              "thumbnail": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "duration": "???"
             }
           ]
         }
