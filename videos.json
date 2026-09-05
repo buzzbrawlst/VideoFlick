@@ -1,12 +1,12 @@
 {
   "site": {
-    "name": "StreamHub",
+    "name": "VideoFlick",
     "description": "Watch. Discover. Stream."
   },
 
   "featured": {
     "title": "Ted",
-    "description": "Ted's attempt to get expelled from high school leads him to purchase drugs from an unlikely source.",
+    "description": "Ted is a comedy series that follows teenage Ted, a foul-mouthed talking teddy bear, living with John Bennett and his family in 1990s Massachusetts. The show mixes chaotic humor, family life, and ridiculous adventures while exploring how Ted and John grew up together.",
     "thumbnail": "assets/thumbnails/ted banner2.png",
     "video": "https://ia601408.us.archive.org/1/items/Ted-the-complete-tv-show/S01%20E01%20Just%20Say%20Yes.mp4",
     "category": "Crude Humor",
@@ -159,20 +159,74 @@
 
             {
               "episode": 1,
-              "title": "???",
-              "description": "Coming Soon",
-              "thumbnail": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "title": "Talk Dirty To Me",
+              "description": "John and Ted use a phone in the school basement to call a sex hotline, but the charges end up costing the school thousands of dollars and a hard-nosed special investigator is brought in to find the culprits.",
+              "thumbnail": "assets/thumbnails/ted21.jpg",
               "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
-              "duration": "???"
+              "duration": "33:00"
             },
 
             {
               "episode": 2,
-              "title": "???",
-              "description": "Coming Soon",
-              "thumbnail": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "title": "Mrs. Robichek",
+              "description": "The bear starts a risky affair with a married woman and becomes emotionally invested, while Susan helps Matty try to figure out the cause of his erectile dysfunction.",
+              "thumbnail": "assets/thumbnails/ted22",
               "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
-              "duration": "???"
+              "duration": "33:00"
+            },
+
+             {
+              "episode": 3,
+              "title": "Dungeons & Dealers",
+              "description": "John and Ted use a phone in the school basement to call a sex hotline, but the charges end up costing the school thousands of dollars and a hard-nosed special investigator is brought in to find the culprits.",
+              "thumbnail": "assets/thumbnails/ted23.jpg",
+              "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "duration": "33:00"
+            },
+
+            {
+              "episode": 4,
+              "title": "The Mom's Bombed Rom-Com",
+              "description": "The bear starts a risky affair with a married woman and becomes emotionally invested, while Susan helps Matty try to figure out the cause of his erectile dysfunction.",
+              "thumbnail": "assets/thumbnails/ted24.jpg",
+              "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "duration": "33:00"
+            },
+
+             {
+              "episode": 5,
+              "title": "The Sword in the Stoned",
+              "description": "John and Ted use a phone in the school basement to call a sex hotline, but the charges end up costing the school thousands of dollars and a hard-nosed special investigator is brought in to find the culprits.",
+              "thumbnail": "assets/thumbnails/ted25.jpg",
+              "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "duration": "33:00"
+            },
+
+            {
+              "episode": 6,
+              "title": "Roe v. Weed",
+              "description": "The bear starts a risky affair with a married woman and becomes emotionally invested, while Susan helps Matty try to figure out the cause of his erectile dysfunction.",
+              "thumbnail": "assets/thumbnails/ted26.jpg",
+              "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "duration": "33:00"
+            },
+
+             {
+              "episode": 7,
+              "title": "Susan Is the New Black",
+              "description": "John and Ted use a phone in the school basement to call a sex hotline, but the charges end up costing the school thousands of dollars and a hard-nosed special investigator is brought in to find the culprits.",
+              "thumbnail": "assets/thumbnails/ted27.jpg",
+              "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "duration": "33:00"
+            },
+
+            {
+              "episode": 8,
+              "title": "Fraudcast News",
+              "description": "The bear starts a risky affair with a married woman and becomes emotionally invested, while Susan helps Matty try to figure out the cause of his erectile dysfunction.",
+              "thumbnail": "assets/thumbnails/ted28.jpg",
+              "video": "https://static.vecteezy.com/system/resources/previews/019/641/473/large_2x/coming-soon-3d-label-promotion-banner-png.png",
+              "duration": "33:00"
             }
           ]
         }
